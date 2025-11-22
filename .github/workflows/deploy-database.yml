@@ -51,6 +51,10 @@ jobs:
           echo 'export PATH="$PATH:/opt/sqlpackage"' >> ~/.bashrc
           source ~/.bashrc
 
+      # 🔍 NEW STEP — Debug masked connection string 
+      - name: Debug connection string (masked)
+        run: echo "CONNECTION_STRING=${{ secrets.AZURE_SQL_CONNECTION_STRING }}"
+
       - name: Deploy DACPAC to Azure SQL
         run: |
           /opt/sqlpackage/sqlpackage \
