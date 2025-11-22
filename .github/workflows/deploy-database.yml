@@ -21,9 +21,7 @@ jobs:
         uses: microsoft/setup-msbuild@v2
 
       - name: Build SQL Database Project (.sqlproj)
-        run: |
-          msbuild ./src/OrderManagement.Database/OrderManagement.Database.sqlproj ^
-            /t:Rebuild /p:Configuration=Release
+        run: msbuild ./src/OrderManagement.Database/OrderManagement.Database.sqlproj /t:Rebuild /p:Configuration=Release
 
       - name: Upload DACPAC Artifact
         uses: actions/upload-artifact@v4
